@@ -19,6 +19,7 @@ A structured study plan for Senior Frontend Engineer interviews focused on:
 frontend-interview-prep/
 │
 ├── README.md
+│
 ├── progress/
 │   ├── gfe75.md
 │   ├── polyfills.md
@@ -40,6 +41,19 @@ frontend-interview-prep/
 │   ├── polyfills/
 │   ├── ui-coding/
 │   └── blind75/
+│
+├── projects/
+│   ├── README.md
+│   ├── testimonial-card/
+│   ├── blog-card/
+│   ├── profile-card/
+│   ├── button-component/
+│   ├── text-input/
+│   ├── newsletter-section/
+│   ├── account-settings/
+│   ├── billing-history/
+│   ├── shopping-cart/
+│   └── product-details-page/
 │
 └── assets/
 ```
