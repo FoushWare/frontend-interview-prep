@@ -1,16 +1,18 @@
-# HTML Interview Questions
+# HTML Interview Questions & Answers
 
----
+## 1. What is HTML?
 
-# 1. What is HTML?
+### Answer
 
-HTML (**HyperText Markup Language**) is the standard markup language used to structure web pages.
+HTML (HyperText Markup Language) is the standard markup language used to structure content on web pages.
 
-HTML defines:
+It defines:
 
 * Structure
 * Content
 * Meaning (semantics)
+
+HTML is not a programming language because it does not contain logic such as loops, conditions, or functions.
 
 Example:
 
@@ -19,84 +21,73 @@ Example:
 <p>This is a paragraph</p>
 ```
 
-HTML is **not a programming language**.
-
-It does not contain:
-
-* Loops
-* Variables
-* Conditions
-
-It describes content structure.
-
 ---
 
-# 2. HTML Document Structure
+## 2. Why do we use DOCTYPE?
 
-Basic structure:
+### Answer
+
+`<!DOCTYPE html>` tells the browser to render the page using modern HTML standards.
+
+Without it, browsers may enter **Quirks Mode**, where they emulate older browser behavior and may render layouts inconsistently.
+
+Example:
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-  <title>Document</title>
-</head>
-
-<body>
-  <h1>Hello</h1>
-</body>
+<html>
+  <body>
+    <h1>Hello</h1>
+  </body>
 </html>
 ```
 
 ---
 
-## Interview Questions
+## 3. What is the purpose of the `<head>` tag?
 
-### Junior
+### Answer
 
-1. What is HTML?
-2. Why use `DOCTYPE`?
-3. What is `<head>`?
-4. What is `<body>`?
+The `<head>` contains metadata about the document that is not displayed directly on the page.
 
-### Mid-Level
+Common elements inside `<head>`:
 
-1. What happens if `DOCTYPE` is missing?
-2. Explain browser rendering process.
+* title
+* meta tags
+* stylesheets
+* scripts
 
-### Senior
+Example:
 
-1. How does browser parse HTML?
-2. What blocks rendering?
+```html
+<head>
+  <title>My Website</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+```
 
 ---
 
-# 3. Semantic HTML
+## 4. What is the difference between `<head>` and `<body>`?
 
-Semantic HTML gives meaning to content.
+### Answer
 
-Bad:
+| Head                        | Body                         |
+| --------------------------- | ---------------------------- |
+| Contains metadata           | Contains visible content     |
+| Not displayed               | Displayed to users           |
+| Contains title, meta, links | Contains text, images, forms |
 
-```html
-<div class="header"></div>
-<div class="content"></div>
-<div class="footer"></div>
-```
+---
 
-Good:
+## 5. What is Semantic HTML?
 
-```html
-<header></header>
-<main></main>
-<footer></footer>
-```
+### Answer
 
-Common semantic tags:
+Semantic HTML uses elements that describe the meaning of the content.
+
+Examples:
 
 ```html
 <header>
@@ -104,83 +95,97 @@ Common semantic tags:
 <main>
 <section>
 <article>
-<aside>
 <footer>
 ```
 
----
+Instead of:
 
-## Why Semantic HTML Matters
+```html
+<div class="header">
+<div class="content">
+<div class="footer">
+```
 
-### 1. Accessibility
+Benefits:
 
-Screen readers understand structure.
-
-### 2. SEO
-
-Search engines understand content better.
-
-### 3. Maintainability
-
-Cleaner code.
+* Better accessibility
+* Better SEO
+* Easier maintenance
 
 ---
 
-## Important Differences
+## 6. Why not use div everywhere?
 
-### `section` vs `div`
+### Answer
 
-`section`
+Using only divs makes the page structure unclear.
 
-* semantic
-* grouped content
+Semantic elements provide meaning to:
 
-`div`
-
-* generic container
-
----
-
-### `article` vs `section`
-
-`article`
-
-* independent reusable content
+* Browsers
+* Search engines
+* Screen readers
 
 Example:
 
-* blog post
-* news card
+```html
+<header>
+  <nav></nav>
+</header>
 
-`section`
+<main>
+  <article></article>
+</main>
+```
 
-* grouped topic
-
----
-
-## Interview Questions
-
-### Junior
-
-1. What is semantic HTML?
-2. Why not use div everywhere?
-
-### Mid-Level
-
-1. Difference between article and section?
-2. Why does semantic HTML matter?
-
-### Senior
-
-1. How does semantic HTML affect accessibility?
+This structure is much easier to understand than nested divs.
 
 ---
 
-# 4. Block vs Inline Elements
+## 7. Difference between section and article?
 
-## Block Elements
+### Answer
 
-Take full width.
+### section
+
+Represents a thematic grouping of content.
+
+Example:
+
+```html
+<section>
+  <h2>Contact Information</h2>
+</section>
+```
+
+### article
+
+Represents independent content that can stand alone.
+
+Example:
+
+```html
+<article>
+  <h2>News Article</h2>
+  <p>Content...</p>
+</article>
+```
+
+Examples of articles:
+
+* Blog posts
+* News articles
+* Product cards
+
+---
+
+## 8. Difference between block and inline elements?
+
+### Answer
+
+### Block Elements
+
+Take full available width.
 
 Examples:
 
@@ -191,11 +196,9 @@ Examples:
 <h1>
 ```
 
----
+### Inline Elements
 
-## Inline Elements
-
-Take only needed width.
+Take only the width they need.
 
 Examples:
 
@@ -207,353 +210,287 @@ Examples:
 
 ---
 
-## Interview Questions
+## 9. Difference between span and div?
 
-1. Difference between block and inline?
-2. Can inline elements have width?
-3. Difference between `span` and `div`?
+### Answer
 
----
+| div                      | span                  |
+| ------------------------ | --------------------- |
+| Block element            | Inline element        |
+| Starts on new line       | Stays in same line    |
+| Used for layout/grouping | Used for styling text |
 
-# 5. Head Tag
-
-Contains metadata.
+Example:
 
 ```html
-<head>
-  <title>My Website</title>
+<div>Container</div>
 
-  <meta charset="UTF-8" />
-
-  <meta
-    name="description"
-    content="Frontend interview prep"
-  />
-
-  <link rel="stylesheet" href="style.css" />
-
-  <script src="app.js"></script>
-</head>
+<span>Inline text</span>
 ```
 
 ---
 
-## Important Tags
+## 10. What is the viewport meta tag?
 
-### title
+### Answer
 
-Page title.
+The viewport meta tag controls how the page is displayed on mobile devices.
 
-### meta
-
-Metadata.
-
-### link
-
-External files.
-
-### script
-
-JavaScript.
-
-### style
-
-Internal CSS.
-
----
-
-## Interview Questions
-
-1. Purpose of `<head>`?
-2. Difference between script and link?
-3. Why viewport meta tag?
-
----
-
-# 6. Script Loading
-
-Bad:
+Example:
 
 ```html
-<script src="app.js"></script>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+/>
 ```
 
-Better:
+Without it, mobile browsers may render the page at desktop width and scale it down.
+
+---
+
+## 11. Difference between async and defer?
+
+### Answer
+
+### async
+
+* Downloads script in parallel
+* Executes immediately after download
+* Execution order is not guaranteed
+
+```html
+<script async src="analytics.js"></script>
+```
+
+### defer
+
+* Downloads script in parallel
+* Executes after HTML parsing
+* Execution order is preserved
 
 ```html
 <script defer src="app.js"></script>
 ```
 
----
+### Interview Answer
 
-## async vs defer
+Use `defer` for application scripts that depend on DOM structure.
 
-### async
-
-* downloads in parallel
-* executes immediately
-
-Execution order ❌ not guaranteed
+Use `async` for independent scripts like analytics and ads.
 
 ---
 
-### defer
+## 12. Difference between GET and POST?
 
-* downloads in parallel
-* executes after HTML parsed
+### Answer
 
-Execution order ✅ guaranteed
+### GET
+
+* Retrieves data
+* Parameters appear in URL
+* Can be cached
+* Should not modify data
+
+Example:
+
+```http
+GET /users?id=1
+```
+
+### POST
+
+* Sends data to server
+* Data is in request body
+* Used for create/update operations
+
+Example:
+
+```http
+POST /users
+```
 
 ---
 
-## Interview Questions
+## 13. What happens when a form is submitted?
 
-1. Difference between async and defer?
-2. Why place script at bottom?
-3. When to use async?
+### Answer
 
----
+Browser process:
 
-# 7. Forms
+1. User clicks submit button
+2. HTML validation runs
+3. Form data collected
+4. Request sent to server
+5. Page reloads (unless prevented)
 
 Example:
 
 ```html
-<form action="/submit" method="POST">
-  <input
-    type="email"
-    required
-  />
-
-  <button type="submit">
-    Submit
-  </button>
-</form>
+<form action="/login" method="POST">
 ```
 
 ---
 
-## GET vs POST
+## 14. What does preventDefault() do?
 
-### GET
+### Answer
 
-* visible in URL
-* for fetching data
+It prevents the browser's default behavior.
 
-### POST
+Example:
 
-* secure
-* send data
+```js
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+});
+```
 
----
-
-## Form Submission Flow
-
-1. User clicks submit
-2. Browser validates
-3. Request sent
+This prevents page refresh during form submission.
 
 ---
 
-## Interview Questions
+## 15. Difference between disabled and readonly?
 
-1. Difference GET vs POST?
-2. What happens on submit?
-3. What does preventDefault do?
+### Answer
 
----
-
-# 8. Inputs
-
-Types:
+### disabled
 
 ```html
-text
-password
-email
-number
-checkbox
-radio
-date
-file
+<input disabled>
 ```
 
----
+* Cannot be edited
+* Cannot be focused
+* Not submitted with form
 
-## Interview Questions
-
-1. Difference radio vs checkbox?
-2. Why use type email?
-3. What input types exist?
-
----
-
-# 9. Form Validation
-
-HTML validation:
+### readonly
 
 ```html
-<input required />
-<input minlength="3" />
-<input pattern="[A-Za-z]+" />
+<input readonly>
 ```
 
----
-
-## Validation Attributes
-
-* required
-* minlength
-* maxlength
-* min
-* max
-* pattern
+* Cannot be edited
+* Can receive focus
+* Included in form submission
 
 ---
 
-## Interview Questions
+## 16. What is Accessibility (A11Y)?
 
-1. Client-side vs server-side validation?
-2. Why server validation still needed?
+### Answer
 
----
+Accessibility means making websites usable by everyone, including users with disabilities.
 
-# 10. Accessibility (A11Y)
+Examples:
 
-Bad:
-
-```html
-<div onclick="submit()">
-Submit
-</div>
-```
-
-Good:
-
-```html
-<button>
-Submit
-</button>
-```
+* Semantic HTML
+* Keyboard navigation
+* Labels
+* Alt text
+* ARIA attributes
 
 ---
 
-## Best Practices
+## 17. Why are labels important?
 
-* Use labels
+### Answer
+
+Labels improve accessibility and usability.
+
+Example:
 
 ```html
 <label for="email">
-Email
+  Email
 </label>
 
-<input id="email" />
+<input id="email">
 ```
 
-* Alt text
+Benefits:
+
+* Screen reader support
+* Larger clickable area
+* Better form usability
+
+---
+
+## 18. Why is alt text important?
+
+### Answer
+
+Alt text describes images for users who cannot see them.
+
+Example:
 
 ```html
-<img alt="User profile" />
+<img
+  src="profile.jpg"
+  alt="User profile picture"
+/>
 ```
 
----
+Benefits:
 
-## Interview Questions
-
-1. What is accessibility?
-2. Why labels matter?
-3. Why semantic HTML helps screen readers?
+* Accessibility
+* SEO
+* Fallback when image fails to load
 
 ---
 
-# 11. SEO Basics
+## 19. How does semantic HTML improve SEO?
 
-Important:
+### Answer
 
-* Semantic HTML
-* Meta description
-* Title tags
-* Alt text
+Semantic elements help search engines understand page structure.
 
----
-
-## Interview Questions
-
-1. How improve SEO?
-2. Why title important?
-
----
-
-# Tricky Questions
-
-### What happens if multiple elements have same id?
-
-Invalid HTML.
-
-JS may behave unexpectedly.
-
----
-
-### Difference between disabled and readonly?
-
-`disabled`
-
-* cannot interact
-* not submitted
-
-`readonly`
-
-* submitted
-* cannot edit
-
----
-
-# Practical Exercises
-
-## Exercise 1
-
-Create a semantic blog page.
-
-Use:
-
-* header
-* nav
-* main
-* article
-* footer
-
----
-
-## Exercise 2
-
-Build login form with validation.
-
-Requirements:
-
-* email
-* password
-* required
-* minlength
-
----
-
-## Exercise 3
-
-Explain:
+Example:
 
 ```html
-<script async src="a.js"></script>
-<script defer src="b.js"></script>
+<header>
+<main>
+<article>
+<footer>
 ```
 
-What execution order happens?
+Search engines can better identify:
+
+* Main content
+* Navigation
+* Articles
+* Page hierarchy
 
 ---
 
-# Senior-Level Questions
+## 20. Explain the browser rendering pipeline.
 
-1. Explain browser rendering pipeline.
-2. Critical rendering path?
-3. How browser parses HTML?
-4. Render blocking resources?
-5. Accessibility best practices?
+### Answer
+
+Steps:
+
+1. Browser downloads HTML
+2. HTML parsed into DOM
+3. CSS parsed into CSSOM
+4. DOM + CSSOM → Render Tree
+5. Layout calculation
+6. Paint pixels
+7. Composite layers
+
+Pipeline:
+
+```
+HTML
+ ↓
+DOM
+ ↓
+Render Tree
+ ↓
+Layout
+ ↓
+Paint
+ ↓
+Composite
+```
+
+This process is commonly called the Critical Rendering Path.
