@@ -1,1 +1,44 @@
 
+/**
+ * @template T, U
+ * @param {(previousValue: U, currentValue: T, currentIndex: number, array: T[]) => U} callbackFn
+ * @param {U} [initialValue]
+ * @return {U}
+ */
+Array.prototype.myReduce = function (callbackFn, initialValue) {
+  if (typeof callbackFn !== 'function') {
+    throw new TypeError(`${callbackFn} is not a function`);
+  }
+
+  const array = this;
+  const arrLength = array.length;
+  let accumulator;
+  let hasAccumulator = false;
+
+  // 1. Only initialize if explicitly provided in arguments
+  if (arguments.length >= 2) {
+    accumulator = initialValue;
+    hasAccumulator = true;
+  }
+
+  // 2. Always loop from 0 to the end
+  for (let i = 0; i < arrLength; i++) {
+    if (Object.prototype.hasOwnProperty.call(array, i)) {
+      if (!hasAccumulator) {
+        // The very first real element found becomes the accumulator
+        accumulator = array[i];
+        hasAccumulator = true;
+      } else {
+        // All future real elements update the accumulator
+        accumulator = callbackFn(accumulator, array[i], i, array);
+      }
+    }
+  }
+
+  // 3. Safety check for empty or completely hollow arrays
+  if (!hasAccumulator) {
+    throw new TypeError('Reduce of empty array with no initial value');
+  }
+
+  return accumulator;
+};
