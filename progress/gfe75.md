@@ -2,3 +2,4 @@
 
 * [X] debounce
 * [X] Array.prototype.reduce
+* [ ] Classnames
