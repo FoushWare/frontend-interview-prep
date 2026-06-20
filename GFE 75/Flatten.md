@@ -22,10 +22,13 @@ Implement a function `flatten` that returns a newly created array with all subar
 // Single-level arrays are unaffected
 flatten([1, 2, 3]); // [1, 2, 3]
 
+```
+
 
 
 Single-level Nesting
-JavaScript
+
+``` javaScript
 // Inner arrays are flattened into a single level
 flatten([1, [2, 3]]); // [1, 2, 3]
 
@@ -33,12 +36,20 @@ flatten([
   [1, 2],
   [3, 4],
 ]); // [1, 2, 3, 4]
+
+```
+
 Deep Nesting
-JavaScript
+
+``` javaScript
 // Flattens deeply nested layers recursively
 flatten([1, [2, [3, [4, [5]]]]]); // [1, 2, 3, 4, 5]
+
+```
+
 Skeleton Code
-JavaScript
+
+```JavaScript
 /**
  * @param {Array} array
  * @return {Array}
@@ -46,3 +57,5 @@ JavaScript
 export default function flatten(array) {
   // Share your implementation here!
 }
+
+```
